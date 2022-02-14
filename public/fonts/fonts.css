@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Nunito-Italic";
+	font-size: "10px";
+	font-style: italic;
+  src: url("./Nunito-Italic-VariableFont_wght.ttf");
+}
+
+@font-face {
+	font-family: "Nunito-ExtraBold";
+	font-weight:800;
+	font-style: normal;
+	src: url("./Nunito-VariableFont_wght.ttf");
+}
+
+@font-face {
+	font-family: "Nunito-SemiBold";
+	font-weight: 600;
+	font-style: normal;
+	src: url("./Nunito-VariableFont_wght.ttf");
+}
+
+@font-face {
+	font-family: "Nunito-Bold";
+	font-weight: 700;
+	font-style: normal;
+	src: url("./Nunito-VariableFont_wght.ttf");
+}

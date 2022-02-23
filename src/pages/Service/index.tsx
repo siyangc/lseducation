@@ -7,9 +7,11 @@ import img_service_bg from "../../assets/images/service_bg.jpg"
 import icon_moon from "../../assets/icons/moon.png"
 import ContactSection from "../../components/ContactSection"
 import ScrollAnimation from "react-animate-on-scroll"
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 export default function Service() {
 
+	const largeScreenWidth = useMediaQuery('(min-width:1024px)');
 	const dotStyle = {
 		width:"10px",
 		height:"10px",
@@ -21,18 +23,16 @@ export default function Service() {
 		fontFamily: "Nunito-SemiBold",
 		fontSize: "16px",
 		color: "#171717",
-		letterSpacing: 0,
 		lineHeight: "24px",
-		width:"469px"
+		maxWidth:"469px"
 	}
 
 	const textWhiteStyle= {
 		fontFamily: "Nunito-SemiBold",
 		fontSize: "16px",
 		color: "#FFFFFF",
-		letterSpacing: 0,
 		lineHeight: "24px",
-		width:"469px"
+		maxWidth:"469px"
 	}
 
 	const listStyle = {
@@ -40,11 +40,12 @@ export default function Service() {
 		marginBottom:"24px"
 	}
   return (
-    <Box>
+    <Box sx={{textAlign:"justify"}}>
       <MainImage currentImage="service"/>
-			<Box sx={{height:"890px",background:"#FFFDF8",position:"relative"}}>
-			<img src={icon_moon} width={"156px"} height={"156px"} style={{position:"absolute",right:"-20px",top:"150px"}} />
-			<Box sx={{position:"absolute",width:"76px",height:"76px",left:"118px",bottom:"160px",background:"#A4ACFD",borderRadius:"50%"}}></Box>
+			<Box sx={{background:"#FFFDF8",position:"relative"}}>
+			{/* {largeScreenWidth && <img src={icon_moon} width={"156px"} height={"156px"} style={{position:"absolute",right:"-20px",top:"150px"}} />} */}
+			{/* <Box sx={{position:"absolute",width:"76px",height:"76px",left:"118px",bottom:"160px",background:"#A4ACFD",borderRadius:"50%"}}></Box> */}
+			<Box sx={{maxWidth:"1014px",margin:"auto",width:"90%"}} >
 				<Typography sx={{
 					fontFamily: "Nunito-ExtraBold",
 					fontSize: "40px",
@@ -52,7 +53,7 @@ export default function Service() {
 					letterSpacing: "1px",
 					textAlign: "center",
 					lineHeight: "50px",
-					marginTop:"80px"
+					paddingTop:"80px"
 				}}>
 					We're here to help
 				</Typography>
@@ -63,18 +64,16 @@ export default function Service() {
 					letterSpacing: "0.4px",
 					textAlign: "center",
 					lineHeight: "30px",
-					width:"814px",
-					margin:"auto",
 					marginTop:"30px"
 				}}>
 					Little Swan Education offers quality long day care and kinder management services for our clients. 
 					We manage and operate child care centres in line with a comprehensive service level agreement to provide the following: 
 				</Typography>
-
-				<Box sx={{display:"flex",marginLeft:"156px",marginTop:"58px", position:"relative"}}>
+				</Box>	
+				<Box sx={{display:"flex",maxWidth:"1120px",margin:"auto",width:"90%",marginTop:"58px", position:"relative",flexWrap:"wrap",justifyContent:"space-between"}}>
 					
-					<img src={img_service_kid1} width={"540px"} height={"500px"} />
-					<Box sx={{width:"494px",marginLeft:"60px"}}>
+					<img src={img_service_kid1} style={{margin:"auto",maxWidth:"400px",width:"80%"}} />
+					<Box sx={{margin:"auto"}}>
 						<Box style={listStyle}>
 							<Box sx={{width:"20px"}}><Box sx={[dotStyle,{background:"#FFD756"}]}></Box></Box>
 							<ScrollAnimation animateIn="fadeInRight" offset={0}>
@@ -137,9 +136,9 @@ export default function Service() {
 				</Box>
 			</Box>
 
-			<Box sx={{height:"772px",background:`url(${img_service_bg})`,position:"relative"}}>
-					<Box sx={{display:"flex",paddingLeft:"172px",paddingTop:"122px"}}>
-					<Box sx={{width:"494px",marginLeft:"60px"}}>
+			<Box sx={{background:`url(${img_service_bg})`,position:"relative"}}>
+					<Box sx={{display:"flex",paddingTop:"122px",flexWrap:"wrap",maxWidth:"1120px",margin:"auto",width:"90%"}}>
+					<Box sx={{margin:"auto"}}>
 						<Box style={listStyle}>
 							<Box sx={{width:"20px"}}><Box sx={[dotStyle,{background:"#FFD756"}]}></Box></Box>
 							<ScrollAnimation animateIn="fadeInRight" offset={0}>
@@ -192,7 +191,7 @@ export default function Service() {
 							</ScrollAnimation>
 						</Box>
 					</Box>
-					<img src={img_service_kid2} width={"540px"} height={"500px"} />
+					<img src={img_service_kid2} style={{margin:"auto",maxWidth:"400px",width:"80%"}} />
 				</Box>
 			</Box>
 

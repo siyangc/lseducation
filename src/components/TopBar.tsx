@@ -9,22 +9,27 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 export default function TopBar(){
 
 	const largeScreenWidth = useMediaQuery('(min-width:1024px)');
-	
+	const smallScreenWidth = useMediaQuery('(max-width:480px)')
+
 	return (
 		<>	
-					<Box sx={{display:"flex",width:"100%",height:"11rem",justifyContent:"space-between"}}>
-						<Box sx={{marginLeft:"121px",width:"320px"}}>
+					<Box sx={{
+						display:"flex",
+						height:"11rem",
+						justifyContent:"space-between",
+						padding:"0 7%",
+						textAlign:"center",
+						alignItems:"center"}}>
+						<Box sx={{width:"320px",margin:"1rem"}}>
 							<Link underline="none" href={`/`}>
 								<Typography sx={{
-									lineHeight:"11rem",
 									fontFamily: "Nunito-ExtraBold",
-									fontSize: "3rem",
+									fontSize: smallScreenWidth?"2rem":"3rem",
 									color: "#128967",
-									letterSpacing: 0,
 								}}>Little Swan Education</Typography>
 							</Link>
 						</Box>
-						<Box sx={{marginRight: "80px"}}>
+						<Box>
 							<NavigationBar />
 						</Box>
 					</Box>

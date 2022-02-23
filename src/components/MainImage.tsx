@@ -17,6 +17,8 @@ export default function MainImage({
 	currentImage:string
 }){
 	const normalScreenWidth = useMediaQuery('(min-width:480px)');
+	const largeScreenWidth = useMediaQuery('(min-width:960px)');
+	const exLargeScreenWidth = useMediaQuery('(min-width:1200px)');
 	const mainImageConfig:{[name:string]:{name:string,showTag:boolean,url:string}} = {
 		"home":{name:"Home",showTag:false,url:img_home},
 		"contact":{name:"Contact Us",showTag:true,url:img_contact},
@@ -38,24 +40,26 @@ export default function MainImage({
 		<Box sx={{position:"relative"}}>
 			<img src={mainImageConfig[currentImage].url} width={"100%"}/>
 			{
-			//normalScreenWidth && 
+			largeScreenWidth && 
 			mainImageConfig[currentImage].showTag &&
 			<Box sx={{
-				width:"449px",
-				height:"124px",
+				width:"31%",
+				height:"20%",
 				position:"absolute",
-				bottom:"136px",
-				left:"-449px",
+				bottom:"20%",
 				background:"#FFFAF0",
 				}}>
+				<Box sx={{width:"100%",display:"flex",alignItems:"center",height:"100%"}}>
 				<Typography sx={{
+					width:"100%",
 					fontFamily:"Nunito-ExtraBold",
-					fontSize: "50px",
+					fontSize: exLargeScreenWidth?"50px":"30px",
 					color: "#128967",
 					letterSpacing: 0,
 					textAlign: "center",
-					lineHeight:"124px"
+					//lineHeight:"124px"
 				}}>{mainImageConfig[currentImage].name}</Typography>
+				</Box>
 			</Box>}
 		</Box>
 	)

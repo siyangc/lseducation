@@ -14,9 +14,12 @@ import icon_red_flower from "../../assets/icons/red_flower.png"
 import icon_blue_arch from "../../assets/icons/blue_arch.png"
 import icon_rose from "../../assets/icons/rose.png"
 import icon_yellow_arrow from "../../assets/icons/yellow_arrow.png"
-
+import ScrollAnimation from "react-animate-on-scroll"
+import useMediaQuery from '@mui/material/useMediaQuery'
 export default function Introduction() {
 
+	const normalScreenWidth = useMediaQuery('(min-width:480px)');
+	const largeScreenWidth = useMediaQuery('(min-width:960px)');
 	const coreValueTitleStyle = {
 		fontFamily: "Nunito-SemiBold",
 		fontSize: "36px",
@@ -51,9 +54,9 @@ export default function Introduction() {
 		direction:number
 	}) => {
 		return (
-			<Box sx={{height:"650px",display:"flex",background:intro.backgroundColor,paddingLeft:"97px",paddingRight:"97px",justifyContent:"space-between",flexDirection:intro.direction===1?"row":"row-reverse"}}>
-				<Box>
-					<Box sx={{marginTop:"202px",width:"210px",height:"50px",background:intro.titleColor,borderRadius:"24px"}}>
+			<Box sx={{display:"flex",background:intro.backgroundColor,justifyContent:"space-between",flexDirection:intro.direction===1?"row":"row-reverse",flexWrap:"wrap",paddingTop:"75px"}}>
+				<Box sx={{margin:"auto",width:"80%",marginBottom:"50px",maxWidth:"500px",marginTop:"10px"}}>
+					<Box sx={{marginTop:"102px",width:"210px",height:"50px",background:intro.titleColor,borderRadius:"24px"}}>
 						<Typography sx={{
 							fontFamily: "Nunito-Bold",
 							fontSize: "30px",
@@ -63,8 +66,9 @@ export default function Introduction() {
 							textAlign:"center"
 						}}>{intro.title}</Typography>
 					</Box>
+					<ScrollAnimation animateIn={intro.direction===1?"slideInLeft":"slideInRight"} offset={0}>
 					<Typography sx={{
-						width:"497px",
+						maxWidth:"497px",
 						fontFamily: "Nunito-SemiBold",
 						fontSize: "16px",
 						color: "#171717",
@@ -72,22 +76,23 @@ export default function Introduction() {
 						lineHeight: "24px",
 						marginTop:"34px"
 					}}>{intro.text}</Typography>
+					</ScrollAnimation>
 				</Box>
-				<img src={intro.imgUrl} width={"650px"} height={"500px"} style={{marginTop:"75px",borderRadius:"30px"}}/>
+				<img src={intro.imgUrl} style={{marginTop:"75px",borderRadius:"30px",margin:"auto",maxWidth:"650px",width:"80%",marginBottom:"50px"}}/>
 			</Box>
 		)
 	}
   return (
     <Box>
       <MainImage currentImage="introduction"/>
-			<Box sx={{height:"650px",background:`url(${img_intro_bg})`,position:"relative"}}>
-				<img src={icon_blue_arch} style={{position:"absolute",left:"-10px",top:"55px"}} width={"180px"} height={"180px"}/>
+			<Box sx={{background:`url(${img_intro_bg})`,position:"relative"}}>
+				{/* <img src={icon_blue_arch} style={{position:"absolute",left:"-10px",top:"55px"}} width={"180px"} height={"180px"}/>
 				<img src={icon_rose} style={{position:"absolute",left:"682px",bottom:"75px"}} width={"75px"} height={"75px"}/>
-				<img src={icon_yellow_arrow} style={{position:"absolute",bottom:"180px",right:"0px"}} width={"100px"} height={"204px"}/>
+				<img src={icon_yellow_arrow} style={{position:"absolute",bottom:"180px",right:"0px"}} width={"100px"} height={"204px"}/> */}
 				<Typography sx={[subTitleStyle,{paddingTop:"141px"}]}>
 					Rich Expirence
 				</Typography>
-				<Typography sx={[textStyle,{margin:"auto",marginTop:"55px",width:"814px"}]}>
+				<Typography sx={[textStyle,{margin:"auto",marginTop:"55px",maxWidth:"1014px",width:"90%",paddingBottom:"100px"}]}>
 					We have ample and rich experiences in operating long day care and kinder in Australia and 
 					we have a complete operation system in child care based industry, including, educational program, 
 					children’s health and safety, the service environment, staff hiring/training/arrangement, 
@@ -96,21 +101,21 @@ export default function Introduction() {
 					for the improvement of daily practice. </Typography>
 			</Box>
 
-			<Box sx={{padding:"99px 97px 140px 97px"}}>
+			<Box sx={{padding:largeScreenWidth? "99px 97px 140px 97px": normalScreenWidth?"99px 50px 140px 50px":"99px 0px 100px 0px"}}>
 				<Typography sx={nameStyle}>Core Values</Typography>
-				<Box sx={{display:"flex",justifyContent:"space-between",marginTop:"126px"}}>
-					<Box sx={{width:"400px",height:"297px",background: "#A4ACFD",borderRadius: "30px",position:"relative"}}>
-						<img src={icon_red_flower} style={{position:"absolute",left:"146px",top:"-55px"}} width={"108px"} height={"108px"}/>
+				<Box sx={{display:"flex",justifyContent:"space-between",marginTop:"56px",flexWrap:"wrap"}}>
+					<Box sx={{minWidth:"300px",width:normalScreenWidth?"400px":"90%",height:"297px",background: "#A4ACFD",borderRadius: "30px",position:"relative",margin:"auto",marginTop:"70px"}}>
+						{normalScreenWidth && <img src={icon_red_flower} style={{position:"absolute",left:"146px",top:"-55px"}} width={"108px"} height={"108px"}/>}
 						<Typography sx={[coreValueTitleStyle,{marginTop:"82px"}]}>1</Typography>
 						<Typography sx={[coreValueTextStyle,{margin:"auto",marginTop:"20px",width:"297px"}]}>Deliver high quality education and care, in a centre that showcases excellence.</Typography>
 					</Box>
-					<Box sx={{width:"400px",height:"297px",background: "#128967",borderRadius: "30px",position:"relative"}}>
-						<img src={icon_yellow_flower} style={{position:"absolute",left:"146px",top:"-55px"}} width={"108px"} height={"108px"}/>
+					<Box sx={{minWidth:"300px",width:normalScreenWidth?"400px":"90%",height:"297px",background: "#128967",borderRadius: "30px",position:"relative",margin:"auto",marginTop:"70px"}}>
+						{normalScreenWidth && <img src={icon_yellow_flower} style={{position:"absolute",left:"146px",top:"-55px"}} width={"108px"} height={"108px"}/>}
 						<Typography sx={[coreValueTitleStyle,{marginTop:"82px"}]}>2</Typography>
 						<Typography sx={[coreValueTextStyle,{margin:"auto",marginTop:"20px",width:"297px"}]}>Be an employer of choice where staff wellbeing and professional learning is valued.</Typography>
 					</Box>
-					<Box sx={{width:"400px",height:"297px",background: "#EA938C",borderRadius: "30px",position:"relative"}}>
-						<img src={icon_white_flower} style={{position:"absolute",left:"146px",top:"-55px"}} width={"108px"} height={"108px"}/>
+					<Box sx={{minWidth:"300px",width:normalScreenWidth?"400px":"90%",height:"297px",background: "#EA938C",borderRadius: "30px",position:"relative",margin:"auto",marginTop:"70px"}}>
+						{normalScreenWidth && <img src={icon_white_flower} style={{position:"absolute",left:"146px",top:"-55px"}} width={"108px"} height={"108px"}/>}
 						<Typography sx={[coreValueTitleStyle,{marginTop:"82px"}]}>3</Typography>
 						<Typography sx={[coreValueTextStyle,{margin:"auto",marginTop:"20px",width:"297px"}]}>To be an affordable and sustainable centre underpinned by governance based on best practice.</Typography>
 					</Box>

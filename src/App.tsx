@@ -1,6 +1,6 @@
 import React, { useEffect }  from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
 	Routes,
   useLocation
@@ -29,11 +29,11 @@ function App() {
   return (
 		<Box sx={{
 			//width:normalScreenWidth?"1440px":"100%",
-			//minWidth:"1440px",
+			maxWidth:"1440px",
 			width:"100%",
 			margin:"auto",
 			overflow:"hidden",
-			textAlign: "center",
+			//textAlign: "center",
 			letterSpacing:0
 			}}>
 			<Router>

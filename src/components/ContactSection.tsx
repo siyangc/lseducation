@@ -35,7 +35,7 @@ export default function ContactSection(){
 				borderRadius: "25px",
 				marginBottom:"82px"
 			}}>
-				<Link underline="none" href="\contact-us">
+				<Link underline="none" href="/#/contact-us">
 					<Typography sx={{
 						fontFamily: "Nunito-ExtraBold",
 						fontSize: "18px",

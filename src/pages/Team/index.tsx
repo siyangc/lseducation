@@ -7,9 +7,11 @@ import img_team_member2 from "../../assets/images/team_member2.jpg"
 import img_team_member3 from "../../assets/images/team_member3.jpg"
 import img_team_member4 from "../../assets/images/team_member4.jpg"
 import icon_moon from "../../assets/icons/moon.png"
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 export default function Team() {
 
+	const normalScreenWidth = useMediaQuery('(min-width:480px)');
 	const TeamMembers = [
 		{name:"Olivia Zhao",intro:[
 			"Master in Early Childhood Education of Monash University",
@@ -56,7 +58,7 @@ export default function Team() {
 		return (
 			<Box sx={{width:"496px",display:"flex",marginTop:"80px"}}>
 				{/* <img src={imgUrl} width={"180px"} height={"180px"} style={{marginRight:"18px"}}/> */}
-				<Box sx={{width:"286px",marginLeft:"100px"}}>
+				<Box sx={{width:"286px",marginLeft:normalScreenWidth?"100px":"30px"}}>
 					<Typography sx={{
 						fontFamily: "Nunito-ExtraBold",
 						fontSize: "30px",
@@ -75,11 +77,11 @@ export default function Team() {
   return (
     <Box>
       <MainImage currentImage="team"/>
-			<Box sx={{height:"960px",background:"#FFFDF8",position:"relative"}}>
-				<img src={icon_moon} width={"156px"} height={"156px"} style={{position:"absolute",right:"-20px",top:"150px"}} />
-				<Box sx={{position:"absolute",width:"76px",height:"76px",left:"-23px",bottom:"80px",background:"#A4ACFD",borderRadius:"50%"}}></Box>
+			<Box sx={{background:"#FFFDF8",position:"relative"}}>
+				{/* <img src={icon_moon} width={"156px"} height={"156px"} style={{position:"absolute",right:"-20px",top:"150px"}} />
+				<Box sx={{position:"absolute",width:"76px",height:"76px",left:"-23px",bottom:"80px",background:"#A4ACFD",borderRadius:"50%"}}></Box> */}
 				<Typography sx={{
-					marginTop:"80px",
+					paddingTop:"80px",
 					fontFamily: "Nunito-ExtraBold",
 					fontSize: "40px",
 					color: "#A4ACFD",
@@ -96,7 +98,8 @@ export default function Team() {
 					letterSpacing: "0.4px",
 					textAlign: "center",
 					lineHeight: "30px",
-					width:"814px",
+					maxWidth:"814px",
+					width:"80%",
 					margin:"auto",
 					marginTop:"30px",
 				}}>
@@ -106,7 +109,7 @@ export default function Team() {
 					 We have created a complete and effective operation management systerm for 
 					 running a long day care and kinder service.
 				</Typography>
-				<Box sx={{display:"flex",paddingLeft:"164px",paddingRight:"164px",flexWrap:"wrap",justifyContent:"space-between"}}>
+				<Box sx={{display:"flex",margin:"auto",maxWidth:"1024px",flexWrap:"wrap",justifyContent:"space-between",paddingBottom:"100px"}}>
 					{TeamMembers.map((member,index)=>{
 						return (
 							<TeamSection key={index} name={member.name} imgUrl={member.imgUrl} intro={member.intro} />
